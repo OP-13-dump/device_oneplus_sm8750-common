@@ -82,3 +82,8 @@ void setTorchStrengthLevelExt(int32_t torchStrength) {
         }
     }
 }
+
+void setTorchModeExt(bool enabled) {
+    int32_t strength = getTorchDefaultStrengthLevelExt();
+    setTorchStrengthLevelExt(enabled ? strength : 0);
+}

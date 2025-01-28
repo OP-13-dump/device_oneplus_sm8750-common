@@ -51,7 +51,7 @@ bool supportsSetTorchModeExt() {
 }
 
 int32_t getTorchDefaultStrengthLevelExt() {
-    return 7;
+    return 50;
 }
 
 int32_t getTorchMaxStrengthLevelExt() {
@@ -68,15 +68,15 @@ int32_t getTorchStrengthLevelExt() {
     return get(node, 0);
 }
 
-void setTorchStrengthLevelExt(int32_t torchStrength) {
+void setTorchStrengthLevelExt(int32_t torchStrength, bool enabled) {
     for (const auto& path : kToggleSwitchPaths) {
         set(path, 0);
     }
-    for (auto& path : kTorchLedPaths) {
+    for (const auto& path : kTorchLedPaths) {
         auto node = path + "/" + TORCH_BRIGHTNESS;
         set(node, torchStrength);
     }
-    if (torchStrength > 0) {
+    if (enabled) {
         for (const auto& path : kToggleSwitchPaths) {
             set(path, 255);
         }
@@ -85,5 +85,5 @@ void setTorchStrengthLevelExt(int32_t torchStrength) {
 
 void setTorchModeExt(bool enabled) {
     int32_t strength = getTorchDefaultStrengthLevelExt();
-    setTorchStrengthLevelExt(enabled ? strength : 0);
+    setTorchStrengthLevelExt(enabled ? strength : 0, enabled);
 }

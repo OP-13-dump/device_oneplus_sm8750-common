@@ -132,6 +132,7 @@ vendor.gatekeeper.disable_spu=true
 vendor.gatekeeper.is_security_level_spu=0
 
 # Graphics
+<<<<<<< HEAD
 debug.graphics.game_default_frame_rate.disabled=0
 debug.sf.auto_latch_unsignaled=1
 debug.sf.early.app.duration.144=10333333
@@ -162,6 +163,7 @@ debug.sf.early.sf.duration.40=16500000
 debug.sf.early.sf.duration.60=15666666
 debug.sf.early.sf.duration.90=13111111
 debug.sf.early.sf.duration=10500000
+debug.sf.enable_adpf_cpu_hint=true
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=0
 debug.sf.enable_hwc_vds=0

@@ -741,6 +741,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="854">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -771,6 +775,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="855">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -801,6 +809,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="856">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -831,6 +843,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="857">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -861,6 +877,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="858">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -891,6 +911,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="859">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -921,6 +945,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="860">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -951,6 +979,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="861">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -981,6 +1013,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="862">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1011,6 +1047,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="863">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1041,6 +1081,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="864">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1071,6 +1115,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="865">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1101,6 +1149,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="866">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1131,6 +1183,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="867">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1161,6 +1217,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="868">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1191,6 +1251,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="869">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1221,6 +1285,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="870">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1251,6 +1319,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="871">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1281,6 +1353,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="872">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1311,6 +1387,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="873">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1341,6 +1421,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="874">
         <boolean name="carrier_vt_available_bool" value="true" />
@@ -1371,6 +1455,10 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <!-- PA: Do not allow 5G NSA on Jio -->
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
+        </int-array>
     </carrier_config>
     <carrier_config mcc="440" mnc="10">
         <boolean name="carrier_volte_available_bool" value="true" />

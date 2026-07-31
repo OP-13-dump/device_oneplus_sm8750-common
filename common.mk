@@ -739,7 +739,8 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix_aidl.xml
 DEVICE_MANIFEST_FILE := \
     $(AUDIO_HAL_DIR)/configs/sun/manifest_audio_qti_services.xml \
-    $(LOCAL_PATH)/vintf/manifest_sun.xml
+    $(LOCAL_PATH)/vintf/manifest_sun.xml \
+    $(LOCAL_PATH)/vintf/manifest_keymint_rkp.xml
 
 ifneq ($(TARGET_IS_TABLET),true)
 DEVICE_MANIFEST_FILE += \

@@ -1,0 +1,2 @@
+# WALT sysctl nodes
+genfscon proc /sys/walt                                          u:object_r:proc_sched:s0

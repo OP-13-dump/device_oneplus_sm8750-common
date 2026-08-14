@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audioadsprpcd \
     audiohalservice.qti \
+    libaudioeffecthal.qti \
     libagm_compress_plugin \
     libagm_mixer_plugin \
     libagm_pcm_plugin \

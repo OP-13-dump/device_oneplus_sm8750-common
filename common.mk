@@ -216,6 +216,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery
 
+# HeyMelody
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/oplus-hiddenapi-package-allowlist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/oplus-hiddenapi-package-allowlist.xml \
+    $(LOCAL_PATH)/configs/permissions/default-permissions-oplus-melody.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-oplus-melody.xml
+
 # Hotword enrollment
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml

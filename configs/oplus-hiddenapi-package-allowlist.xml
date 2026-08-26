@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <!-- HeyMelody / OP Buds: COUIVersionUtil links OplusBuild.VERSION.SDK_VERSION on launch. -->
+  <hidden-api-whitelisted-app package="com.heytap.headset" />
+  <hidden-api-whitelisted-app package="com.oplus.melody" />
+</config>

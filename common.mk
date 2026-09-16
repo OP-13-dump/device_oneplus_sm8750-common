@@ -553,7 +553,6 @@ PRODUCT_PACKAGES += \
     NcmTetheringOverlay \
     OPlusFrameworksResCommon \
     OPlusSettingsResCommon \
-    OPlusSystemUIResCommon \
     WifiResTarget
 
 ifneq ($(TARGET_IS_TABLET),true)
@@ -716,20 +715,6 @@ PRODUCT_PACKAGES += \
 # Verified Boot
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
-
-# Vibrator
-ifneq ($(TARGET_IS_TABLET),true)
-ifneq ($(TARGET_USES_OPLUS_VIBRATOR_BLOBS),true)
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.oplus_sm8750
-endif
-
-PRODUCT_PACKAGES += \
-    HapticsPolicy.xml
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
-endif
 
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \

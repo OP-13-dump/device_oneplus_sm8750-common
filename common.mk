@@ -591,6 +591,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# Dodge has no DRM idle_state node, so InteractionHandler falls back to a
+# timed INTERACTION hold. Pixel defaults (min 1400 / max 5650) keep the 8
+# Elite boosted for seconds after every tap; keep flings covered, then drop.
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.powerhal.interaction.min=400 \
+    vendor.powerhal.interaction.max=1200 \
+    vendor.powerhal.interaction.offset=100
+
 # QSPA
 PRODUCT_PACKAGES += \
     qspa_vendor.rc \

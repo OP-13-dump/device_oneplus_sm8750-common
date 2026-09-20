@@ -145,16 +145,18 @@ if [ -d /proc/sys/walt ]; then
 	echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 	echo 1 > /sys/devices/system/cpu/cpufreq/policy6/walt/pl
 
+	# 1344000/2380800 are not sun OPPs (clamp ~1363/2246). Jump to the next
+	# real step so WALT does not sit in the 1.4–2.4 GHz band on a fling.
 	if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
 		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 		echo 902400 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
-		echo 1344000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
-		echo 2380800 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
+		echo 1152000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+		echo 1689600 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
 	else
 		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 		echo 902400 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
-		echo 1344000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
-		echo 2380800 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
+		echo 1152000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+		echo 1689600 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
 	fi
 else
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor

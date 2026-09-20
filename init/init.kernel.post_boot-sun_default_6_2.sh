@@ -125,12 +125,14 @@ if [ -d /proc/sys/walt ]; then
 	echo 0 > /proc/sys/walt/sched_boost
 
 	# configure input boost settings
+	# cpu0 only: boosting cpu1 as well just doubles cluster0 energy for
+	# the same OPP. 250 ms covers a tap without riding a fling.
 	if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
 		echo 864000 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 	else
-		echo 1363200 1363200 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+		echo 1363200 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 	fi
-	echo 500 > /proc/sys/walt/input_boost/input_boost_ms
+	echo 250 > /proc/sys/walt/input_boost/input_boost_ms
 
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
@@ -160,12 +162,14 @@ else
 	echo 1 > /proc/sys/kernel/sched_pelt_multiplier
 fi
 
+# 537600/844800 are not OPPs on sun (kernel clamps to 556800/1017600).
+# 384000 is a real cluster0 floor; primes already idle at hardware min.
 if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
-	echo 537600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 844800 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+	echo 384000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 1017600 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
 else
-	echo 537600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 844800 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+	echo 384000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 1017600 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
 fi
 
 # Reset the RT boost, which is 1024 (max) by default.

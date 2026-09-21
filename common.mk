@@ -311,12 +311,14 @@ SPAMMY_LOG_TAGS := \
     AdnRecordCache \
     AdnRecordLoader \
     AirplaneHandler \
+    AIUnit-Utils \
     AT \
     APM-KpiMonitor \
     APM-ServiceJ \
     APM-SessionJ \
     APM-SessionN \
     APM-Subscriber \
+    BatteryDamageDetect \
     C2K_RIL-DATA \
     C2MtkBufferManager \
     C2Store \
@@ -326,6 +328,7 @@ SPAMMY_LOG_TAGS := \
     CCodec \
     CCodecBuffers \
     ConstraintSet \
+    ContainerJni \
     CountryDetector \
     CwbService \
     DataDispatcher \
@@ -347,6 +350,7 @@ SPAMMY_LOG_TAGS := \
     DSSelectorOm \
     DSSelectorUtil \
     ExternalSimMgr \
+    FileExtendedContainer \
     FrameTracker \
     gsl \
     GsmCallTkrHlpr \
@@ -375,6 +379,7 @@ SPAMMY_LOG_TAGS := \
     IRIS_LOG_SERV_I7 \
     IsimFileHandler \
     IsimRecords \
+    IWlanJni \
     LCM-Subscriber \
     Light \
     libPowerHal \
@@ -408,8 +413,10 @@ SPAMMY_LOG_TAGS := \
     PowerHalMgrImpl \
     PowerHalMgrServiceImpl \
     PowerHalWifiMonitor \
+    ProgressiveModeExifInterface \
     PQ \
     PQ_DS \
+    QC-time-services \
     ProxyController \
     QTI PowerHAL \
     RadioManager \
@@ -489,6 +496,7 @@ SPAMMY_LOG_TAGS := \
     RtcIms \
     RtcImsConference \
     RtcImsConfigController \
+    ScopedStorageMediaExpandParser \
     SDM \
     StatsLog \
     synaLib \
@@ -497,7 +505,8 @@ SPAMMY_LOG_TAGS := \
     vendor.qti.bluetooth@1.1-ibs_handler \
     vendor.qti.bluetooth@1.1-wake_lock \
     vendor.qti.vibrator \
-    VPUD
+    VPUD \
+    WatermarkFileOperator
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \

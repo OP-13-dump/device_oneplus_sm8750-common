@@ -145,17 +145,18 @@ if [ -d /proc/sys/walt ]; then
 	echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 	echo 1 > /sys/devices/system/cpu/cpufreq/policy6/walt/pl
 
-	# 1344000/2380800 are not sun OPPs (clamp ~1363/2246). Jump to the next
-	# real step so WALT does not sit in the 1.4–2.4 GHz band on a fling.
+	# 1344000/2380800 are not sun OPPs. Cluster0 1363 is the real step
+	# the old 1344 was clamping to (launcher drawer needs it). Primes
+	# stay at 1690 so scroll does not sit at ~2.2 GHz.
 	if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
 		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 		echo 902400 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
-		echo 1152000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+		echo 1363200 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 		echo 1689600 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
 	else
 		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 		echo 902400 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
-		echo 1152000 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+		echo 1363200 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 		echo 1689600 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
 	fi
 else

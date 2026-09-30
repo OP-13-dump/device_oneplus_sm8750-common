@@ -741,6 +741,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -775,6 +778,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -809,6 +815,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -843,6 +852,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -877,6 +889,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -911,6 +926,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -945,6 +963,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -979,6 +1000,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1013,6 +1037,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1047,6 +1074,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1081,6 +1111,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1115,6 +1148,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1149,6 +1185,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1183,6 +1222,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1217,6 +1259,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1251,6 +1296,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1285,6 +1333,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1319,6 +1370,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1353,6 +1407,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1387,6 +1444,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1421,6 +1481,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -1455,6 +1518,9 @@
         <boolean name="config_retry_sms_over_ims" value="true" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <!-- PA: Do not allow 5G NSA on Jio -->
         <int-array name="carrier_nr_availabilities_int_array" num="1">
             <item value="2" />
@@ -3064,10 +3130,11 @@
         <boolean name="config_disable_clir_over_ut" value="true" />
         <boolean name="config_oplus_show_5g_pref" value="true" />
         <boolean name="config_oplus_4g_pref_default" value="false" />
-        <boolean name="vonr_enabled_bool" value="false" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
         <int name="carrier_oplus_auto_nr_mode" value="3" />
-        <boolean name="oplus_carrier_call_disable_endc" value="true" />
+        <boolean name="oplus_carrier_call_disable_endc" value="false" />
         <string-array name="mccmnc" num="22">
             <item value="405840" />
             <item value="405854" />

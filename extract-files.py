@@ -50,7 +50,6 @@ blob_fixups: blob_fixups_user_type = {
         'odm/bin/touchDaemon',
         'odm/bin/hw/vendor-oplus-hardware-touch-V2-service',
         'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff',
-        'vendor/lib64/soundfx/libquasar.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/etc/init/init.network.rc': blob_fixup()

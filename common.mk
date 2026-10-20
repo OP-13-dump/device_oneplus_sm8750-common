@@ -785,5 +785,9 @@ PRODUCT_COPY_FILES += \
 # := and would otherwise drop the HIDL fragments this appends.
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
 
+# WiFi firmware symlinks
+PRODUCT_PACKAGES += \
+    firmware_WCNSS_qcom_cfg.ini_symlink
+
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8750-common/sm8750-common-vendor.mk)

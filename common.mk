@@ -178,6 +178,7 @@ endif
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
+    duck_rkp \
     wvmkiller
 
 # Enforce generic ramdisk allow list

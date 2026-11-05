@@ -285,3 +285,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include the proprietary files BoardConfig.
 include vendor/oneplus/sm8750-common/BoardConfigVendor.mk
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/oneplus/sm8750-common/duck-rkp/compatibility_matrix.xml
+

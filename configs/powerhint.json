@@ -270,6 +270,57 @@
         ""
       ],
       "Type": "Property"
+    },
+    {
+      "Name": "ADPF_SURFACEFLINGER",
+      "Paths": [
+        "<AdpfConfig>:SURFACEFLINGER"
+      ],
+      "Values": [
+        "ADPF_SF",
+        "ADPF_DEFAULT"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Event"
+    },
+    {
+      "Name": "ADPF_HWUI",
+      "Paths": [
+        "<AdpfConfig>:HWUI"
+      ],
+      "Values": [
+        "ADPF_HWUI",
+        "ADPF_DEFAULT"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Event"
+    },
+    {
+      "Name": "ADPF_GAME",
+      "Paths": [
+        "<AdpfConfig>:GAME"
+      ],
+      "Values": [
+        "ADPF_GAME",
+        "ADPF_DEFAULT"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Event"
+    },
+    {
+      "Name": "ADPF_OTHER",
+      "Paths": [
+        "<AdpfConfig>:OTHER"
+      ],
+      "Values": [
+        "ADPF_DEFAULT"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Event"
     }
   ],
   "Actions": [
@@ -561,6 +612,42 @@
       "Value": "525000000"
     },
     {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPUBWMinFreq",
+      "Duration": 0,
+      "Value": "1555000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "LLCCBWMinFreq",
+      "Duration": 0,
+      "Value": "600000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "ADPF_GAME",
+      "Duration": 0,
+      "Value": "ADPF_GAME"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBWMinFreq",
+      "Duration": 0,
+      "Value": "1555000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "LLCCBWMinFreq",
+      "Duration": 0,
+      "Value": "600000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "525000000"
+    },
+    {
       "PowerHint": "LOW_POWER",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
@@ -583,8 +670,8 @@
     {
       "Name": "ADPF_DEFAULT",
       "PID_On": true,
-      "PID_Po": 5.0,
-      "PID_Pu": 3.0,
+      "PID_Po": 3.0,
+      "PID_Pu": 1.5,
       "PID_I": 0.001,
       "PID_I_Init": 200,
       "PID_I_High": 512,
@@ -595,14 +682,86 @@
       "SamplingWindow_I": 0,
       "SamplingWindow_D": 1,
       "UclampMin_On": true,
-      "UclampMin_Init": 100,
-      "UclampMin_LoadUp": 200,
-      "UclampMin_LoadReset": 300,
-      "UclampMin_High": 384,
+      "UclampMin_Init": 128,
+      "UclampMin_LoadUp": 512,
+      "UclampMin_LoadReset": 128,
+      "UclampMin_High": 512,
       "UclampMin_Low": 0,
-      "ReportingRateLimitNs": 166666660,
+      "ReportingRateLimitNs": 8333333,
       "TargetTimeFactor": 1.0,
       "StaleTimeFactor": 10.0
+    },
+    {
+      "Name": "ADPF_SF",
+      "PID_On": true,
+      "PID_Po": 4.0,
+      "PID_Pu": 2.0,
+      "PID_I": 0.001,
+      "PID_I_Init": 200,
+      "PID_I_High": 512,
+      "PID_I_Low": -120,
+      "PID_Do": 500.0,
+      "PID_Du": 0.0,
+      "SamplingWindow_P": 1,
+      "SamplingWindow_I": 0,
+      "SamplingWindow_D": 1,
+      "UclampMin_On": true,
+      "UclampMin_Init": 160,
+      "UclampMin_LoadUp": 512,
+      "UclampMin_LoadReset": 160,
+      "UclampMin_High": 512,
+      "UclampMin_Low": 0,
+      "ReportingRateLimitNs": 8333333,
+      "TargetTimeFactor": 1.0,
+      "StaleTimeFactor": 10.0
+    },
+    {
+      "Name": "ADPF_HWUI",
+      "PID_On": true,
+      "PID_Po": 3.0,
+      "PID_Pu": 1.5,
+      "PID_I": 0.001,
+      "PID_I_Init": 200,
+      "PID_I_High": 512,
+      "PID_I_Low": -120,
+      "PID_Do": 500.0,
+      "PID_Du": 0.0,
+      "SamplingWindow_P": 1,
+      "SamplingWindow_I": 0,
+      "SamplingWindow_D": 1,
+      "UclampMin_On": true,
+      "UclampMin_Init": 128,
+      "UclampMin_LoadUp": 512,
+      "UclampMin_LoadReset": 128,
+      "UclampMin_High": 512,
+      "UclampMin_Low": 0,
+      "ReportingRateLimitNs": 8333333,
+      "TargetTimeFactor": 1.0,
+      "StaleTimeFactor": 10.0
+    },
+    {
+      "Name": "ADPF_GAME",
+      "PID_On": true,
+      "PID_Po": 4.0,
+      "PID_Pu": 2.0,
+      "PID_I": 0.001,
+      "PID_I_Init": 200,
+      "PID_I_High": 640,
+      "PID_I_Low": -120,
+      "PID_Do": 500.0,
+      "PID_Du": 0.0,
+      "SamplingWindow_P": 1,
+      "SamplingWindow_I": 0,
+      "SamplingWindow_D": 1,
+      "UclampMin_On": true,
+      "UclampMin_Init": 256,
+      "UclampMin_LoadUp": 640,
+      "UclampMin_LoadReset": 256,
+      "UclampMin_High": 640,
+      "UclampMin_Low": 0,
+      "ReportingRateLimitNs": 8333333,
+      "TargetTimeFactor": 1.0,
+      "StaleTimeFactor": 15.0
     }
   ]
 }

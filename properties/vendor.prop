@@ -132,8 +132,11 @@ persist.sys.fuse.passthrough.enable=true
 vendor.gatekeeper.disable_spu=true
 vendor.gatekeeper.is_security_level_spu=0
 
+# HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
+
 # Graphics
-<<<<<<< HEAD
 debug.graphics.game_default_frame_rate.disabled=0
 debug.sf.auto_latch_unsignaled=1
 debug.sf.early.app.duration.144=10333333

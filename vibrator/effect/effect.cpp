@@ -135,3 +135,20 @@ const struct effect_stream *get_effect_stream(uint32_t effect_id)
 
     return NULL;
 }
+
+uint64_t get_supported_effects_mask(void)
+{
+    /* CLICK..HEAVY_CLICK, as the HAL has always reported. */
+    return 0x3f;
+}
+
+const struct effect_stream *get_short_vibration_stream(uint32_t duration_ms __unused)
+{
+    return NULL;
+}
+
+int16_t scale_effect_magnitude(uint32_t kind __unused, int16_t magnitude,
+                               float amplitude __unused)
+{
+    return magnitude;
+}

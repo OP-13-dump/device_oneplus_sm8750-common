@@ -48,6 +48,31 @@
 #include "effect.h"
 #endif
 
+#ifdef USE_EFFECT_STREAM
+static inline int16_t scaleMagnitude(uint32_t kind, int16_t magnitude, float amplitude) {
+    return scale_effect_magnitude(kind, magnitude, amplitude);
+}
+
+static inline uint64_t supportedEffectsMask() {
+    return get_supported_effects_mask();
+}
+#else
+enum effect_play_kind {
+    EFFECT_PLAY_PERFORM = 0,
+    EFFECT_PLAY_PRIMITIVE = 1,
+    EFFECT_PLAY_ON = 2,
+    EFFECT_PLAY_ON_SHORT = 3,
+};
+
+static inline int16_t scaleMagnitude(uint32_t, int16_t magnitude, float) {
+    return magnitude;
+}
+
+static inline uint64_t supportedEffectsMask() {
+    return 0x3f;
+}
+#endif
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -90,6 +115,8 @@ InputFFDevice::InputFFDevice()
     mSupportExternalControl = false;
     mCurrAppId = INVALID_VALUE;
     mCurrMagnitude = 0x7fff;
+    mOnMagnitude = 0x7fff;
+    mShortOn = false;
     mInExternalControl = false;
 
     dp = opendir(INPUT_DIR);
@@ -175,7 +202,8 @@ bool InputFFDevice::isPresent() {
  *                    kernel driver, and the rest two parameters are used for returning
  *                    back the real playing length from kernel driver.
  */
-int InputFFDevice::play(int effectId, uint32_t timeoutMs, long *playLengthMs) {
+int InputFFDevice::play(int effectId, uint32_t timeoutMs, long *playLengthMs,
+                        const struct effect_stream *streamOverride) {
     struct ff_effect effect;
     struct input_event play;
     int16_t data[CUSTOM_DATA_LEN] = {0, 0, 0};
@@ -212,7 +240,7 @@ int InputFFDevice::play(int effectId, uint32_t timeoutMs, long *playLengthMs) {
             effect.u.periodic.custom_data = data;
             effect.u.periodic.custom_len = sizeof(int16_t) * CUSTOM_DATA_LEN;
 #ifdef USE_EFFECT_STREAM
-            stream = get_effect_stream(effectId);
+            stream = streamOverride != NULL ? streamOverride : get_effect_stream(effectId);
             if (stream != NULL) {
                 effect.u.periodic.custom_data = (int16_t *)stream;
                 effect.u.periodic.custom_len = sizeof(*stream);
@@ -273,10 +301,27 @@ errout:
 }
 
 int InputFFDevice::on(int32_t timeoutMs) {
+#ifdef USE_EFFECT_STREAM
+    /*
+     * The effect lib may turn a short pulse into a prebaked waveform (stock
+     * OOS does this for one-shots up to ~100 ms). The framework follows on()
+     * with setAmplitude(), which is applied as FF_GAIN to the playing stream.
+     */
+    const struct effect_stream *stream =
+            timeoutMs > 0 ? get_short_vibration_stream(timeoutMs) : NULL;
+    if (stream != NULL && stream->data != NULL && stream->length > 0) {
+        mShortOn = true;
+        mCurrMagnitude = scaleMagnitude(EFFECT_PLAY_ON_SHORT, STRONG_MAGNITUDE, -1.0f);
+        return play(stream->effect_id, INVALID_VALUE, NULL, stream);
+    }
+#endif
+    mShortOn = false;
+    mCurrMagnitude = scaleMagnitude(EFFECT_PLAY_ON, mOnMagnitude, -1.0f);
     return play(INVALID_VALUE, timeoutMs, NULL);
 }
 
 int InputFFDevice::off() {
+    mShortOn = false;
     return play(INVALID_VALUE, 0, NULL);
 }
 
@@ -290,6 +335,9 @@ int InputFFDevice::setAmplitude(uint8_t amplitude) {
 
     tmp = amplitude * (STRONG_MAGNITUDE - LIGHT_MAGNITUDE) / 255;
     tmp += LIGHT_MAGNITUDE;
+    mOnMagnitude = tmp;
+    tmp = scaleMagnitude(mShortOn ? EFFECT_PLAY_ON_SHORT : EFFECT_PLAY_ON, tmp,
+                         amplitude / 255.0f);
     ie.type = EV_FF;
     ie.code = FF_GAIN;
     ie.value = tmp;
@@ -324,6 +372,7 @@ int InputFFDevice::playEffect(int effectId, EffectStrength es, long *playLengthM
         return -1;
     }
 
+    mCurrMagnitude = scaleMagnitude(EFFECT_PLAY_PERFORM, mCurrMagnitude, -1.0f);
     return play(effectId, INVALID_VALUE, playLengthMs);
 }
 
@@ -340,6 +389,7 @@ int InputFFDevice::playPrimitive(int primitiveId, float amplitude, long *playLen
     tmp = (uint8_t)(amplitude * 0xff);
     mCurrMagnitude = tmp * (STRONG_MAGNITUDE - LIGHT_MAGNITUDE) / 255;
     mCurrMagnitude += LIGHT_MAGNITUDE;
+    mCurrMagnitude = scaleMagnitude(EFFECT_PLAY_PRIMITIVE, mCurrMagnitude, amplitude);
 
     ret = play(primitiveId, INVALID_VALUE, playLengthMs);
     if (ret != 0)
@@ -662,14 +712,13 @@ ndk::ScopedAStatus VibratorOL::perform(Effect effect, EffectStrength es, const s
 
     ALOGD("Vibrator perform effect %d", effect);
 
-    if (Offload.mEnabled == 1) {
-         if ((effect < Effect::CLICK) ||
-             ((effect > Effect::HEAVY_CLICK) && (effect < Effect::RINGTONE_12)) ||
-             (effect > Effect::RINGTONE_15))
-             return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
-    } else {
-         if (effect < Effect::CLICK || effect > Effect::HEAVY_CLICK)
-             return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    {
+        const int id = static_cast<int>(effect);
+        const bool offloaded = Offload.mEnabled == 1 &&
+                effect >= Effect::RINGTONE_12 && effect <= Effect::RINGTONE_15;
+        const bool streamed = id >= 0 && id < 64 && ((supportedEffectsMask() >> id) & 1);
+        if (!offloaded && !streamed)
+            return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
     }
 
     if (es != EffectStrength::LIGHT && es != EffectStrength::MEDIUM && es != EffectStrength::STRONG)
@@ -699,13 +748,15 @@ ndk::ScopedAStatus VibratorOL::getSupportedEffects(std::vector<Effect>* _aidl_re
     if (ledVib.mDetected)
         return ndk::ScopedAStatus::ok();
 
-    if (Offload.mEnabled == 1)
-        *_aidl_return = {Effect::CLICK, Effect::DOUBLE_CLICK, Effect::TICK, Effect::THUD,
-                         Effect::POP, Effect::HEAVY_CLICK, Effect::RINGTONE_12,
-                         Effect::RINGTONE_13, Effect::RINGTONE_14, Effect::RINGTONE_15};
-    else
-        *_aidl_return = {Effect::CLICK, Effect::DOUBLE_CLICK, Effect::TICK, Effect::THUD,
-                         Effect::POP, Effect::HEAVY_CLICK};
+    _aidl_return->clear();
+    const uint64_t mask = supportedEffectsMask();
+    for (int id = 0; id < 64; id++) {
+        const Effect e = static_cast<Effect>(id);
+        const bool offloaded = Offload.mEnabled == 1 &&
+                e >= Effect::RINGTONE_12 && e <= Effect::RINGTONE_15;
+        if (((mask >> id) & 1) || offloaded)
+            _aidl_return->push_back(e);
+    }
 
     return ndk::ScopedAStatus::ok();
 }

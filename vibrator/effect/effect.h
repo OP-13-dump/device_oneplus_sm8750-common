@@ -40,4 +40,28 @@ struct effect_stream {
 
 const struct effect_stream *get_effect_stream(uint32_t effect_id);
 
+/*
+ * Optional hooks a device effect library can use to shape playback
+ * (e.g. dodge O-Haptics). This library provides pass-through defaults.
+ */
+enum effect_play_kind {
+    EFFECT_PLAY_PERFORM = 0,    /* IVibrator::perform() predefined effect */
+    EFFECT_PLAY_PRIMITIVE = 1,  /* IVibrator::compose() primitive */
+    EFFECT_PLAY_ON = 2,         /* IVibrator::on() constant vibration */
+    EFFECT_PLAY_ON_SHORT = 3,   /* IVibrator::on() replaced by a waveform */
+};
+
+/* Bit N set: AOSP Effect N can be streamed by perform(). */
+uint64_t get_supported_effects_mask(void);
+
+/* Waveform to play instead of a constant on(duration_ms), or NULL. */
+const struct effect_stream *get_short_vibration_stream(uint32_t duration_ms);
+
+/*
+ * Final FF magnitude (1..0x7fff) for a request. @magnitude is the QTI HAL
+ * magnitude it would otherwise use; @amplitude is the requested 0..1
+ * amplitude/scale, or a negative value when not applicable.
+ */
+int16_t scale_effect_magnitude(uint32_t kind, int16_t magnitude, float amplitude);
+
 #endif

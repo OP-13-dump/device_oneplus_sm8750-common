@@ -37,6 +37,8 @@
 #include <thread>
 #include <mutex>
 
+struct effect_stream;
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -82,10 +84,15 @@ public:
     bool mInExternalControl;
 
 private:
-    int play(int effectId, uint32_t timeoutMs, long *playLengthMs);
+    int play(int effectId, uint32_t timeoutMs, long *playLengthMs,
+             const struct effect_stream *streamOverride = nullptr);
     int mVibraFd;
     int16_t mCurrAppId;
     int16_t mCurrMagnitude;
+    /* Unscaled magnitude from the last setAmplitude(), used by on(). */
+    int16_t mOnMagnitude;
+    /* The current on() request is playing a short waveform, not a constant. */
+    bool mShortOn;
     std::mutex mtx;
 };
 
